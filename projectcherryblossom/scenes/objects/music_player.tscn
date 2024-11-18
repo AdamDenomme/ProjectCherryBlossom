@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmvwlv2sbad6j"]
+
+[ext_resource type="AudioStream" uid="uid://bbu8mhpatvo6n" path="res://SFX/716970__denkyschuk__mystical-forest-dark-cinematic-trailer-bpm-78-loop.wav" id="1_po6rc"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_po6rc")
+autoplay = true
+max_distance = 4096.0

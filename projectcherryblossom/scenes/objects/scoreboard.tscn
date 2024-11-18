@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://qr84mxmkng1f"]
+
+[node name="Scoreboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -106.0
+offset_right = 0.5
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FirstPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="SecondPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="ThirdPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="FourthPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="FifthPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="SixthPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="SeventhPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="EighthPlace" type="Label" parent="ScoreContainer"]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+text = "Return"

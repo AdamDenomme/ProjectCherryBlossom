@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://cvgoe0gb0igow"]
+
+[ext_resource type="PackedScene" uid="uid://bd5prn7axbrnp" path="res://scenes/objects/world.tscn" id="1_m1d5k"]
+[ext_resource type="PackedScene" uid="uid://bdrh25at1t40f" path="res://scenes/objects/victory_plane.tscn" id="2_x315g"]
+[ext_resource type="PackedScene" uid="uid://6m7klmpo3emf" path="res://scenes/objects/player_moved_platform.tscn" id="3_63gxc"]
+[ext_resource type="PackedScene" uid="uid://7g7f06gpebts" path="res://scenes/objects/destructible_platform.tscn" id="4_48qcf"]
+[ext_resource type="PackedScene" uid="uid://dfil3e7q72bmv" path="res://scenes/objects/branches.tscn" id="5_y0twq"]
+[ext_resource type="PackedScene" uid="uid://6yp86bwbddhx" path="res://scenes/objects/spike.tscn" id="6_mrxxm"]
+[ext_resource type="PackedScene" uid="uid://d2mv1wvaxuv0j" path="res://scenes/objects/pickup.tscn" id="7_f3xp1"]
+[ext_resource type="PackedScene" uid="uid://cp6vsr0xv0gv1" path="res://scenes/objects/background_scenery_1.tscn" id="8_occq0"]
+[ext_resource type="PackedScene" uid="uid://bm1shpkhehrtp" path="res://scenes/objects/dash_reset.tscn" id="9_ixtq3"]
+[ext_resource type="PackedScene" uid="uid://dyymporvf2evn" path="res://scenes/objects/arrow_for_demo.tscn" id="10_x5kie"]
+[ext_resource type="PackedScene" uid="uid://by0fh38mh4io1" path="res://scenes/objects/wind.tscn" id="11_0w8xb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1hl7t"]
+
+[sub_resource type="Sky" id="Sky_qyfjk"]
+sky_material = SubResource("ProceduralSkyMaterial_1hl7t")
+
+[sub_resource type="Environment" id="Environment_a0veb"]
+background_mode = 2
+background_energy_multiplier = 1.95
+sky = SubResource("Sky_qyfjk")
+
+[node name="World" instance=ExtResource("1_m1d5k")]
+
+[node name="VictoryPlane" parent="." index="0" instance=ExtResource("2_x315g")]
+
+[node name="PlayerMovedPlatformLeft" parent="." index="1" instance=ExtResource("3_63gxc")]
+transform = Transform3D(2.99132, 0, 0, 0, 2.99132, 0, 0, 0, 2.99132, -7.62303, 43.373, 0.189688)
+collision_layer = 8
+
+[node name="PlayerMovedPlatformRight2" parent="." index="2" instance=ExtResource("3_63gxc")]
+transform = Transform3D(2.99132, 0, 0, 0, 2.99132, 0, 0, 0, 2.99132, -31.1805, 51.2846, 0.189688)
+collision_layer = 8
+
+[node name="DestructiblePlatform" parent="." index="3" instance=ExtResource("4_48qcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.7444, 2.52022, -0.00483286)
+
+[node name="DestructiblePlatform3" parent="." index="4" instance=ExtResource("4_48qcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.6492, 5.15636, -0.00483286)
+
+[node name="DestructiblePlatform4" parent="." index="5" instance=ExtResource("4_48qcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.3358, 6.4438, -0.00483286)
+
+[node name="DestructiblePlatform2" parent="." index="6" instance=ExtResource("4_48qcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468582, 36.0979, -0.00483286)
+
+[node name="Branches" parent="." index="7" groups=["Branches"] instance=ExtResource("5_y0twq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.0382, 4.29942, 0)
+collision_layer = 8
+collision_mask = 13
+
+[node name="Branches3" parent="." index="8" groups=["Branches"] instance=ExtResource("5_y0twq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.4167, 19.9293, 0)
+collision_layer = 8
+collision_mask = 13
+
+[node name="Branches4" parent="." index="9" groups=["Branches"] instance=ExtResource("5_y0twq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9929, 28.478, 0)
+collision_layer = 8
+collision_mask = 13
+
+[node name="Pickup" parent="." index="10" instance=ExtResource("7_f3xp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.3733, 9.13167, 0.0236111)
+
+[node name="Pickup3" parent="." index="11" instance=ExtResource("7_f3xp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3795, 0.934751, 0.0236111)
+
+[node name="Pickup4" parent="." index="12" instance=ExtResource("7_f3xp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.7723, 0.934751, 0.0236111)
+
+[node name="Pickup2" parent="." index="13" instance=ExtResource("7_f3xp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.8441, 38.9126, 0.0236111)
+
+[node name="Pickup5" parent="." index="14" instance=ExtResource("7_f3xp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54708, 72.2774, 0.0236111)
+
+[node name="DashReset" parent="." index="15" instance=ExtResource("9_ixtq3")]
+transform = Transform3D(1.56123, 0, 0, 0, 1.56123, 0, 0, 0, 1.56123, 4.73836, 19.763, 0)
+
+[node name="DashReset2" parent="." index="16" instance=ExtResource("9_ixtq3")]
+transform = Transform3D(1.56123, 0, 0, 0, 1.56123, 0, 0, 0, 1.56123, 4.96325, 28.6095, 0)
+
+[node name="BackgroundScenery1" parent="." index="17" instance=ExtResource("8_occq0")]
+transform = Transform3D(2.7106, 0, 0, 0, 2.7106, 0, 0, 0, 2.7106, 20.4448, 0.738322, 10.6465)
+
+[node name="BackgroundScenery2" parent="." index="18" instance=ExtResource("8_occq0")]
+transform = Transform3D(2.7106, 0, 0, 0, 2.7106, 0, 0, 0, 2.7106, -63.3536, 0.738322, -14.209)
+
+[node name="Spike" parent="." index="19" instance=ExtResource("6_mrxxm")]
+transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -28.3392, 0.401721, 0)
+
+[node name="Spike2" parent="." index="20" instance=ExtResource("6_mrxxm")]
+transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -26.1192, 0.401721, 0)
+
+[node name="Spike3" parent="." index="21" instance=ExtResource("6_mrxxm")]
+transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -20.6575, 0.401721, 0)
+
+[node name="Spike4" parent="." index="22" instance=ExtResource("6_mrxxm")]
+transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -18.3828, 0.401721, 0)
+
+[node name="ArrowForDemo" parent="." index="23" instance=ExtResource("10_x5kie")]
+transform = Transform3D(0.422862, -7.2219, 0, 7.2219, 0.422862, 0, 0, 0, 7.23427, 7.64011, 10.9185, -4.96641)
+
+[node name="ArrowForDemo2" parent="." index="24" instance=ExtResource("10_x5kie")]
+transform = Transform3D(-6.59982, -2.96261, 0, 2.96261, -6.59982, 0, 0, 0, 7.23427, -18.3456, 50.0372, -4.96641)
+
+[node name="ArrowForDemo3" parent="." index="25" instance=ExtResource("10_x5kie")]
+transform = Transform3D(5.41271, -4.79972, 0, 4.79972, 5.41271, 0, 0, 0, 7.23427, -16.6816, 60.4936, -4.96641)
+
+[node name="Area3D" parent="." index="26" instance=ExtResource("11_0w8xb")]
+transform = Transform3D(-0.0107372, -0.0471009, 9.1008, -0.0163366, 9.10079, 0.0470816, -9.1009, -0.0162809, -0.0108215, 40.1245, 0, 5.27843)
+
+[node name="VictoryPlane2" parent="." index="27" instance=ExtResource("2_x315g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.616, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="28"]
+environment = SubResource("Environment_a0veb")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://fkqa4tj0upmt"]
+
+[ext_resource type="PackedScene" uid="uid://dmatpp64vgx84" path="res://fbxs/KenneyTextures/block-moving-blue.fbx" id="1_bv5yl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjgab"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tjgab")
+
+[node name="block-moving-blue" parent="." instance=ExtResource("1_bv5yl")]

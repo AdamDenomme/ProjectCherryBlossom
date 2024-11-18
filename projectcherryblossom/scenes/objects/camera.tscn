@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://tatna3f3iiwi"]
+
+[ext_resource type="Script" path="res://scripts/camera.gd" id="1_sshbv"]
+
+[node name="CameraPivot" type="Marker3D"]
+script = ExtResource("1_sshbv")
+x_lowerbound = -100
+x_upperbound = 100
+y_lowerbound = -100
+y_upperbound = 100
+
+[node name="Camera3D" type="Camera3D" parent="."]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfil3e7q72bmv"]
+
+[ext_resource type="Script" path="res://scripts/branches.gd" id="1_4ueco"]
+[ext_resource type="PackedScene" uid="uid://c8jkj8yiisep1" path="res://fbxs/KenneyTextures/crate.fbx" id="2_o3iyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_maqrk"]
+size = Vector3(1.94288, 0.723053, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klnch"]
+size = Vector3(1.77006, 0.614972, 0.806167)
+
+[node name="Branches" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11894, 0)
+script = ExtResource("1_4ueco")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0242831, -0.579182, 0.130113)
+visible = false
+shape = SubResource("BoxShape3D_maqrk")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0214663, 0.0672133, 0.0385966)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0319309, -0.226058, 0.117138)
+shape = SubResource("BoxShape3D_klnch")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="crate" parent="MeshInstance3D" instance=ExtResource("2_o3iyv")]
+transform = Transform3D(3.61743, 0, 0, 0, 1.3745, 0, 0, 0, 1.55512, -0.0211438, -0.784447, 0.132272)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

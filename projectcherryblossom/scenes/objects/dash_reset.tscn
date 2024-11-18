@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm1shpkhehrtp"]
+
+[ext_resource type="Script" path="res://scripts/dash_reset.gd" id="1_bq2hx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2m773"]
+size = Vector3(0.522949, 0.537048, 0.460815)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkv26"]
+transparency = 1
+albedo_color = Color(0.368627, 1, 1, 0.439216)
+
+[sub_resource type="SphereMesh" id="SphereMesh_oc72g"]
+
+[node name="DashReset" type="Node3D"]
+script = ExtResource("1_bq2hx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010498, 0.0545959, 0.0272827)
+shape = SubResource("BoxShape3D_2m773")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.671029, 0, 0, 0, 0.671029, 0, 0, 0, 0.671029, -0.025107, 0, 0)
+material_override = SubResource("StandardMaterial3D_xkv26")
+mesh = SubResource("SphereMesh_oc72g")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

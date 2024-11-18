@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdrh25at1t40f"]
+
+[ext_resource type="Script" path="res://scripts/victory_plane.gd" id="1_i21t3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fmx23"]
+
+[node name="VictoryPlane" type="Area3D"]
+script = ExtResource("1_i21t3")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fmx23")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

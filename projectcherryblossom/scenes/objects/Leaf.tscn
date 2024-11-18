@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcd7i1kp24dit"]
+
+[ext_resource type="ArrayMesh" uid="uid://cud5hb0sbbjo1" path="res://scenes/objects/Leaf.mesh" id="1_xnkvg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_it5k4"]
+albedo_color = Color(0, 0.384314, 0.0235294, 1)
+
+[node name="Plane" type="MeshInstance3D"]
+transform = Transform3D(544.027, 0, 0, 0, -6.48529e-05, 544.027, 0, -544.027, -6.48529e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_it5k4")
+mesh = ExtResource("1_xnkvg")
+skeleton = NodePath("")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2mv1wvaxuv0j"]
+
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_6f57v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k1v60"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnj2s"]
+albedo_color = Color(0.700816, 0.700817, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wc0do"]
+
+[node name="Pickup" type="Node3D" groups=["pickup"]]
+script = ExtResource("1_6f57v")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_k1v60")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.81024, 0, 0, 0, -4.22394e-09, -0.81024, 0, 0.0966325, -3.54167e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_hnj2s")
+mesh = SubResource("CylinderMesh_wc0do")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

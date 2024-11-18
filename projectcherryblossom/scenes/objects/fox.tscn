@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnaat413mfn15"]
+
+[ext_resource type="PackedScene" uid="uid://dpv1itpm4pw5t" path="res://art/Free Wild Animal 3D Models/fbx/Animals/fox.fbx" id="1_2bv8e"]
+
+[node name="fox" instance=ExtResource("1_2bv8e")]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3xr0w1vjwirs"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_3wl55"]
+[ext_resource type="PackedScene" uid="uid://ron7vsjaio36" path="res://art/player.glb" id="1_mrrfd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5c5i5"]
+radius = 0.8
+
+[sub_resource type="Animation" id="Animation_7wybp"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gwq4r"]
+resource_name = "float"
+length = 1.2
+loop_mode = 2
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nc18"]
+_data = {
+"RESET": SubResource("Animation_7wybp"),
+"float": SubResource("Animation_gwq4r")
+}
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_mask = 6
+script = ExtResource("1_3wl55")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Character" parent="Pivot" instance=ExtResource("1_mrrfd")]
+transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848, 0, 0.35, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("SphereShape3D_5c5i5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6nc18")
+}
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="AfterImageTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

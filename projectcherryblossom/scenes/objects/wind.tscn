@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://by0fh38mh4io1"]
+
+[ext_resource type="Script" path="res://scripts/wind.gd" id="1_yua18"]
+[ext_resource type="ArrayMesh" uid="uid://cud5hb0sbbjo1" path="res://scenes/objects/Leaf.mesh" id="2_ffmra"]
+
+[sub_resource type="Curve" id="Curve_k03wn"]
+_data = [Vector2(0, 0.032967), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_icqwk"]
+min_value = -1.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.231884, 1), 0.0, 0.0, 0, 0, Vector2(0.536232, -1), 0.0, 0.0, 0, 0, Vector2(0.710145, 1), -2.09975, -2.09975, 0, 0, Vector2(0.876812, 0.56044), 0.0, 0.0, 0, 0, Vector2(1, -0.032967), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_22o8y"]
+curve_x = SubResource("Curve_k03wn")
+curve_y = SubResource("Curve_icqwk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nem1o"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 5, 5)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+directional_velocity_min = 20.0
+directional_velocity_max = 50.0
+directional_velocity_curve = SubResource("CurveXYZTexture_22o8y")
+gravity = Vector3(0, 0, 0)
+scale_min = 50.0
+scale_max = 50.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cpfyc"]
+size = Vector3(0.538063, 1.09253, 0.931549)
+
+[node name="WindTerrain" type="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+collision_layer = 8
+script = ExtResource("1_yua18")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.0940338, 0, 1.3594e-08, 0, 0.240871, 0, -8.22069e-09, 0, -0.155498, 0.487488, 0.225061, 0.425095)
+amount = 50
+lifetime = 1.23
+randomness = 0.5
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_nem1o")
+draw_pass_1 = ExtResource("2_ffmra")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235298, 0.527667, 0.440874)
+shape = SubResource("BoxShape3D_cpfyc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

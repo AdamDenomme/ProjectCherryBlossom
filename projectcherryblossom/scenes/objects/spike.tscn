@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://6yp86bwbddhx"]
+
+[ext_resource type="Script" path="res://scripts/spike.gd" id="1_a4waw"]
+[ext_resource type="PackedScene" uid="uid://carwmrcpsts1f" path="res://fbxs/KenneyTextures/trap-spikes.fbx" id="2_k38bu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnv6a"]
+size = Vector3(0.750061, 0.377014, 1)
+
+[node name="Spike" type="Area3D"]
+script = ExtResource("1_a4waw")
+
+[node name="Hitbox" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0127869, 0.185638, 0)
+shape = SubResource("BoxShape3D_dnv6a")
+
+[node name="trap-spikes" parent="." instance=ExtResource("2_k38bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0151303, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

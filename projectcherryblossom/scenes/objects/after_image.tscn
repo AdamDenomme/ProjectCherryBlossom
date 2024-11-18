@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj3ir36dcidw"]
+
+[ext_resource type="PackedScene" uid="uid://ron7vsjaio36" path="res://art/player.glb" id="1_tulbo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2y56n"]
+
+[node name="AfterImage" type="CharacterBody3D"]
+collision_layer = 12
+collision_mask = 0
+platform_floor_layers = 4294967048
+
+[node name="player" parent="." instance=ExtResource("1_tulbo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2y56n")
+disabled = true

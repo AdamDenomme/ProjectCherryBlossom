@@ -1,0 +1,163 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpc65da1h7mt"]
+
+[ext_resource type="Script" path="res://scripts/pause_screen.gd" id="1_x22nn"]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseScreen" type="Panel" parent="." node_paths=PackedStringArray("resume_button", "retry_button", "quit_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x22nn")
+resume_button = NodePath("ResumeButton")
+retry_button = NodePath("RetryButton")
+quit_button = NodePath("QuitButton")
+
+[node name="ResumeButton" type="Button" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.488
+anchor_right = 0.5
+anchor_bottom = 0.488
+offset_left = -35.0
+offset_top = -43.52
+offset_right = 35.0
+offset_bottom = -12.52
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="RetryButton" type="Button" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+
+[node name="QuitButton" type="Button" parent="PauseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = 20.0
+offset_right = 21.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="Retry" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.192157)
+
+[node name="Label" type="Label" parent="Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -14.0
+offset_right = 109.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retry."
+horizontal_alignment = 1
+
+[node name="PlayableUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StrawberryDisplay" type="HBoxContainer" parent="PlayableUI"]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DeathFade" type="ColorRect" parent="PlayableUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LifeCounter" type="Label" parent="PlayableUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 28.0
+grow_horizontal = 0
+
+[node name="TimerLabel" type="Label" parent="PlayableUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LevelTimer" type="Timer" parent="PlayableUI/TimerLabel"]
+
+[node name="VictoryScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="VictoryScreen"]
+layout_mode = 1
+color = Color(0, 0, 0, 0.356863)
+
+[node name="ScoreDisplay" type="Label" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://6m7klmpo3emf"]
+
+[ext_resource type="Script" path="res://scripts/player_moved_platform.gd" id="1_tf0cu"]
+[ext_resource type="PackedScene" uid="uid://bp4ft8iu5c3va" path="res://fbxs/KenneyTextures/block-moving-large.fbx" id="2_mrntp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpd6t"]
+size = Vector3(0.896561, 0.601039, 0.804962)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7f3pj"]
+size = Vector3(1, 0.513842, 0.882782)
+
+[node name="PlayerMovedPlatform" type="CharacterBody3D"]
+transform = Transform3D(2.99132, 0, 0, 0, 2.99132, 0, 0, 0, 2.99132, 0, 0, 0)
+collision_mask = 13
+script = ExtResource("1_tf0cu")
+
+[node name="ControlArea" type="Area3D" parent="."]
+
+[node name="Collision" type="CollisionShape3D" parent="ControlArea"]
+transform = Transform3D(1.0022, 0, 0, 0, 1.0022, 0, 0, 0, 1.0022, 0.0082316, 0.349102, -0.00778669)
+shape = SubResource("BoxShape3D_tpd6t")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.295113, 0.00843819)
+shape = SubResource("BoxShape3D_7f3pj")
+
+[node name="block-moving-large" parent="." instance=ExtResource("2_mrntp")]
+
+[connection signal="body_entered" from="ControlArea" to="." method="_on_control_area_body_entered"]
+[connection signal="body_exited" from="ControlArea" to="." method="_on_control_area_body_exited"]

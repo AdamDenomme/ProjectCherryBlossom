@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyymporvf2evn"]
+
+[ext_resource type="PackedScene" uid="uid://dbuk2dgxqw7al" path="res://fbxs/KenneyTextures/arrow.fbx" id="1_l0xcj"]
+
+[node name="ArrowForDemo" type="Node3D"]
+
+[node name="arrow" parent="." instance=ExtResource("1_l0xcj")]
