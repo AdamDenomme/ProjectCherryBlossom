@@ -33,8 +33,18 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:Armature_1": {
+"import/skip_import": true
+},
 "PATH:Armature_1/Skeleton3D": {
-"rest_pose/external_animation_library": null
+"rest_pose/external_animation_library": null,
+"rest_pose/load_pose": 2,
+"rest_pose/selected_animation": "Take 001",
+"retarget/bone_map": null,
+"retarget/remove_tracks/unimportant_positions": false
+},
+"PATH:Armature_1/Skeleton3D/fox": {
+"generate/physics": true
 }
 }
 }

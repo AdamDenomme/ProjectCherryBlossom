@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cse3ilue8nx3r" path="res://art/NightStarsBackground.png" id="1_saytn"]
 [ext_resource type="Script" path="res://scenes/objects/PixelBackground.gd" id="2_7hbqr"]
-[ext_resource type="PackedScene" uid="uid://yfccd0s0fymf" path="res://scenes/levels/DemoTestingLevel.tscn" id="3_2n3v6"]
+[ext_resource type="PackedScene" uid="uid://yfccd0s0fymf" path="res://scenes/levels/FirstLevelBackground.tscn" id="3_2n3v6"]
 
 [node name="BaseBackground" type="Node2D"]
 
@@ -11,7 +11,7 @@ offset_left = -77.0
 offset_top = -57.0
 offset_right = 2227.0
 offset_bottom = 1239.0
-scale = Vector2(0.414749, 0.654395)
+scale = Vector2(1, 1.576)
 mouse_filter = 2
 texture = ExtResource("1_saytn")
 expand_mode = 3
@@ -27,6 +27,6 @@ transparent_bg = true
 handle_input_locally = false
 audio_listener_enable_3d = true
 canvas_cull_mask = 4294966273
-size = Vector2i(720, 540)
 
 [node name="Origin" parent="SubViewport" instance=ExtResource("3_2n3v6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265839, 3.8147e-06, 0.0449715)

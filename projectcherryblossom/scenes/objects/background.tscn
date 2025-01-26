@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bk7ruocqpx521" path="res://art/origbig.png" id="1_a0enm"]
 [ext_resource type="Script" path="res://scenes/objects/PixelBackground.gd" id="2_exbpf"]
-[ext_resource type="PackedScene" uid="uid://yfccd0s0fymf" path="res://scenes/levels/DemoTestingLevel.tscn" id="3_g7amm"]
+[ext_resource type="PackedScene" uid="uid://yfccd0s0fymf" path="res://scenes/levels/FirstLevelBackground.tscn" id="3_g7amm"]
 
 [node name="Origin" type="Node2D"]
 

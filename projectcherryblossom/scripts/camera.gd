@@ -33,9 +33,10 @@ func _ready():
 		if child.is_in_group("player"):
 			player = child #Find the player
 		for branch in get_tree().get_nodes_in_group("Branches"):
-			branch.connect("player_platform_status", Callable(self, "_on_player_platform_status"))
-		for dashReset in get_tree().get_nodes_in_group("DashReset"):
-			dashReset.connect("Dash_Reset_status", Callable(self, "_on_Dash_Reset_status"))
+			if not branch.is_connected("player_platform_status", Callable(self, "_on_player_platform_status")):
+				branch.connect("player_platform_status", Callable(self, "_on_player_platform_status"))
+		#for dashReset in get_tree().get_nodes_in_group("DashReset"):
+			#dashReset.connect("Dash_Reset_status", Callable(self, "_on_Dash_Reset_status"))
 	
 	#Settle the camera position
 	position = spawn.position
@@ -89,4 +90,3 @@ func _on_Dash_Reset_status(on_platform: bool):
 			target_position = position + Vector3(3, 0, 0)
 	else:
 		target_position = original_position
-	

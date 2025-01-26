@@ -20,7 +20,7 @@ script = ExtResource("1_tf0cu")
 transform = Transform3D(1.0022, 0, 0, 0, 1.0022, 0, 0, 0, 1.0022, 0.0082316, 0.349102, -0.00778669)
 shape = SubResource("BoxShape3D_tpd6t")
 
-[node name="Collision" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.295113, 0.00843819)
 shape = SubResource("BoxShape3D_7f3pj")
 

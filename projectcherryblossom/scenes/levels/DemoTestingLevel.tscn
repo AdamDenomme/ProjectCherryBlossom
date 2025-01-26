@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yfccd0s0fymf"]
+[gd_scene load_steps=19 format=3 uid="uid://c36euyvc3vmy"]
 
 [ext_resource type="PackedScene" uid="uid://dttalk70bgx1n" path="res://fbxs/KenneyTextures/block-grass-large.fbx" id="1_elbvc"]
 [ext_resource type="PackedScene" uid="uid://tatna3f3iiwi" path="res://scenes/objects/camera.tscn" id="2_inuxf"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://d2mv1wvaxuv0j" path="res://scenes/objects/pickup.tscn" id="10_fvi2j"]
 [ext_resource type="PackedScene" uid="uid://bm1shpkhehrtp" path="res://scenes/objects/dash_reset.tscn" id="11_2bntf"]
 [ext_resource type="PackedScene" uid="uid://cp6vsr0xv0gv1" path="res://scenes/objects/background_scenery_1.tscn" id="12_re7nj"]
-[ext_resource type="PackedScene" uid="uid://6yp86bwbddhx" path="res://scenes/objects/spike.tscn" id="13_0xqgu"]
 [ext_resource type="PackedScene" uid="uid://dyymporvf2evn" path="res://scenes/objects/arrow_for_demo.tscn" id="14_x524v"]
 [ext_resource type="PackedScene" uid="uid://by0fh38mh4io1" path="res://scenes/objects/wind.tscn" id="15_4x4tc"]
 
@@ -46,10 +45,10 @@ transform = Transform3D(57.9287, 0, 0, 0, 1.40539, 0, 0, 0, 23.9384, 0, 0, 0)
 [node name="CameraPivot" parent="." instance=ExtResource("2_inuxf")]
 
 [node name="Player" parent="." instance=ExtResource("3_qxm05")]
-collision_mask = 14
+transform = Transform3D(1.81971, 0, 0, 0, 2.71296, 0, 0, 0, 2.71296, 0, 0.537627, 0)
 
 [node name="SpawnLocation" parent="." instance=ExtResource("4_efkr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.591, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.591, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.658493, 0.752587, 0, -0.752587, 0.658493, -1.29336, 14.2836, 6.07732)
@@ -59,7 +58,7 @@ light_color = Color(0.105788, 2.58462e-05, 0.559198, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="VictoryPlane" parent="." instance=ExtResource("6_r0wjc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.865, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 2, 0)
 
 [node name="PlayerMovedPlatformLeft" parent="." instance=ExtResource("7_mhb03")]
 transform = Transform3D(2.99132, 0, 0, 0, 2.99132, 0, 0, 0, 2.99132, -7.62303, 43.373, 0.189688)
@@ -122,18 +121,6 @@ transform = Transform3D(2.7106, 0, 0, 0, 2.7106, 0, 0, 0, 2.7106, 20.4448, 0.738
 
 [node name="BackgroundScenery2" parent="." instance=ExtResource("12_re7nj")]
 transform = Transform3D(2.7106, 0, 0, 0, 2.7106, 0, 0, 0, 2.7106, -63.3536, 0.738322, -14.209)
-
-[node name="Spike" parent="." instance=ExtResource("13_0xqgu")]
-transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -28.3392, 0.401721, 0)
-
-[node name="Spike2" parent="." instance=ExtResource("13_0xqgu")]
-transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -26.1192, 0.401721, 0)
-
-[node name="Spike3" parent="." instance=ExtResource("13_0xqgu")]
-transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -20.6575, 0.401721, 0)
-
-[node name="Spike4" parent="." instance=ExtResource("13_0xqgu")]
-transform = Transform3D(3.06602, 0, 0, 0, 3.06602, 0, 0, 0, 3.06602, -18.3828, 0.401721, 0)
 
 [node name="ArrowForDemo" parent="." instance=ExtResource("14_x524v")]
 transform = Transform3D(0.422862, -7.2219, 0, 7.2219, 0.422862, 0, 0, 0, 7.23427, 7.64011, 10.9185, -4.96641)

@@ -1,47 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3xr0w1vjwirs"]
+[gd_scene load_steps=8 format=3 uid="uid://b3xr0w1vjwirs"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3wl55"]
-[ext_resource type="PackedScene" uid="uid://cnk4go2batu6b" path="res://cocodrilo.fbx" id="2_bq36f"]
+[ext_resource type="PackedScene" uid="uid://cv14cmiq1g5xb" path="res://fbxs/Animations/foxwithbothanimations.tscn" id="2_fyupc"]
 [ext_resource type="AudioStream" uid="uid://0o0336njgth7" path="res://SFX/714258__qubodup__cloud-poof.wav" id="3_dhv6l"]
+[ext_resource type="AudioStream" uid="uid://c60ktnptkmgad" path="res://SFX/landing1.mp3" id="4_tu1sw"]
+[ext_resource type="AudioStream" uid="uid://crbdn2p006lif" path="res://SFX/jumping1.mp3" id="5_cj5ig"]
+[ext_resource type="AudioStream" uid="uid://xc0dpupo6o48" path="res://SFX/collect1.mp3" id="6_nvp5s"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r5d2o"]
-size = Vector3(9.92065, 3.13101, 4.38782)
-
-[sub_resource type="Animation" id="Animation_7wybp"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_wqrbl"]
-resource_name = "Run"
-
-[sub_resource type="Animation" id="Animation_gwq4r"]
-resource_name = "float"
-length = 1.2
-loop_mode = 2
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nc18"]
-_data = {
-"RESET": SubResource("Animation_7wybp"),
-"Run": SubResource("Animation_wqrbl"),
-"float": SubResource("Animation_gwq4r")
-}
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkrlb"]
+size = Vector3(3.92912, 1.75406, 1.16931)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
-transform = Transform3D(0.335373, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-collision_mask = 6
+transform = Transform3D(0.75, 0, 0, 0, 0.936, 0, 0, 0, 1.113, 0, 0, 0)
+collision_mask = 14
 script = ExtResource("1_3wl55")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="cocodrilo" parent="Pivot" instance=ExtResource("2_bq36f")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4535, -0.380715, -0.0905159)
-shape = SubResource("BoxShape3D_r5d2o")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6nc18")
-}
+[node name="foxidle" parent="Pivot" instance=ExtResource("2_fyupc")]
+transform = Transform3D(3.18986, 0, 0, 0, 3.18986, 0, 0, 0, 3.18986, -3.56188, 0, 0.322246)
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -53,5 +30,20 @@ one_shot = true
 
 [node name="DashSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_dhv6l")
+
+[node name="LandingSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_tu1sw")
+volume_db = -25.0
+
+[node name="JumpingSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cj5ig")
+volume_db = -15.0
+
+[node name="PickupSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nvp5s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4555, 1.00621, 0.355043)
+shape = SubResource("BoxShape3D_pkrlb")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

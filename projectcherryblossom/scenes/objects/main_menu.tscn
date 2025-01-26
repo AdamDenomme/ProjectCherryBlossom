@@ -1,15 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://l4mcohyps04y"]
+[gd_scene load_steps=4 format=3 uid="uid://l4mcohyps04y"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_do3bk"]
-[ext_resource type="PackedScene" uid="uid://b3xr0w1vjwirs" path="res://scenes/objects/player.tscn" id="2_ry1re"]
 [ext_resource type="Texture2D" uid="uid://bk7ruocqpx521" path="res://art/origbig.png" id="2_tci46"]
-[ext_resource type="Script" path="res://scenes/objects/MainMenuBackground.gd" id="3_8d7yl"]
-[ext_resource type="PackedScene" uid="uid://cnk0dilgu3p4f" path="res://fbxs/KenneyTextures/block-grass-curve.fbx" id="3_sovoy"]
-[ext_resource type="PackedScene" uid="uid://tk5ew18fbfap" path="res://fbxs/grass tussocks/grass1.fbx" id="4_b8wtu"]
-[ext_resource type="PackedScene" uid="uid://o4uworc3adyl" path="res://fbxs/KenneyTextures/rocks.fbx" id="5_xqixs"]
-[ext_resource type="PackedScene" uid="uid://chj038538tsux" path="res://fbxs/KenneyTextures/tree-pine-small.fbx" id="6_stuvu"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_dlct4"]
+[ext_resource type="Texture2D" uid="uid://cj4mdv7gyp613" path="res://art/AIGeneratedLogo.png" id="3_2nje7"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,315 +17,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_do3bk")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-offset_left = -799.0
-offset_top = -107.0
-offset_right = 1505.0
-offset_bottom = 1189.0
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_tci46")
 expand_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 2
-offset_left = -761.0
-offset_top = -126.0
-offset_right = 1543.0
-offset_bottom = 1170.0
-script = ExtResource("3_8d7yl")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-layout_mode = 0
-offset_right = 720.0
-offset_bottom = 540.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-canvas_cull_mask = 4294966273
-size = Vector2i(720, 540)
-render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.972909, 0.231188, 0, -0.231188, 0.972909, 4.3988, 0.32673, -12.4887)
-fov = 129.375
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.997454, 0.0713059, 0, -0.0713059, 0.997454, 0, 7.69444, 16.1338)
-light_energy = 0.699
-
-[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_ry1re")]
-transform = Transform3D(-0.140253, -0.037973, -0.471105, 0.0159931, 0.513648, -0.0519856, 0.316613, -0.0427675, -0.206064, 4.50878, -0.133011, -13.4551)
-script = null
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
-mesh = SubResource("BoxMesh_dlct4")
-
-[node name="block-grass-curve" parent="SubViewportContainer/SubViewport/MeshInstance3D" instance=ExtResource("3_sovoy")]
-transform = Transform3D(8.50419, 0, 0, 0, 1, 0, 0, 0, 11.4623, 2.35632, -2.09426, -11.0227)
-
-[node name="grass1" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -13.1494)
-
-[node name="grass2" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -13.0801)
-
-[node name="grass3" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -12.9263)
-
-[node name="grass4" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12452, -0.994972, -12.9263)
-
-[node name="grass5" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51878, -0.994972, -12.9263)
-
-[node name="grass6" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93172, -0.994972, -12.9263)
-
-[node name="grass7" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1771, -0.888889, -12.9657)
-
-[node name="grass8" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44847, -0.773163, -13.0204)
-
-[node name="grass9" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54357, -0.715299, -12.9198)
-
-[node name="grass10" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -13.8047)
-
-[node name="grass11" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -13.7354)
-
-[node name="grass12" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70954, -0.994972, -13.5816)
-
-[node name="grass13" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12452, -0.994972, -13.5816)
-
-[node name="grass14" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.51878, -0.994972, -13.5816)
-
-[node name="grass15" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93172, -0.994972, -13.5816)
-
-[node name="grass16" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1771, -0.888889, -13.6211)
-
-[node name="grass17" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44847, -0.773163, -13.6757)
-
-[node name="grass18" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54357, -0.715299, -13.5752)
-
-[node name="grass19" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53079, -0.994972, -13.8047)
-
-[node name="grass20" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53079, -0.994972, -13.7354)
-
-[node name="grass21" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53079, -0.994972, -13.5816)
-
-[node name="grass22" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.94577, -0.994972, -13.5816)
-
-[node name="grass23" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34003, -0.994972, -13.5816)
-
-[node name="grass24" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75297, -0.994972, -13.5816)
-
-[node name="grass25" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.99834, -0.888889, -13.6211)
-
-[node name="grass26" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26972, -0.773163, -13.6757)
-
-[node name="grass27" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.36482, -0.715299, -13.5752)
-
-[node name="grass28" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.8047)
-
-[node name="grass29" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.7354)
-
-[node name="grass30" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.5816)
-
-[node name="grass31" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77698, -0.994972, -13.5816)
-
-[node name="grass32" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17125, -0.994972, -13.5816)
-
-[node name="grass33" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58419, -0.994972, -13.5816)
-
-[node name="grass34" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82956, -0.888889, -13.6211)
-
-[node name="grass35" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10093, -0.773163, -13.6757)
-
-[node name="grass36" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19604, -0.715299, -13.5752)
-
-[node name="grass37" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.291)
-
-[node name="grass38" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.2217)
-
-[node name="grass39" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36201, -0.994972, -13.0679)
-
-[node name="grass40" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77698, -0.994972, -13.0679)
-
-[node name="grass41" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17125, -0.994972, -13.0679)
-
-[node name="grass42" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58419, -0.994972, -13.0679)
-
-[node name="grass43" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82956, -0.888889, -13.1074)
-
-[node name="grass44" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10093, -0.773163, -13.162)
-
-[node name="grass45" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.19604, -0.715299, -13.0615)
-
-[node name="grass46" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59508, -0.994972, -13.291)
-
-[node name="grass47" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59508, -0.994972, -13.2217)
-
-[node name="grass48" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59508, -0.994972, -13.0679)
-
-[node name="grass49" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01006, -0.994972, -13.0679)
-
-[node name="grass50" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.40432, -0.994972, -13.0679)
-
-[node name="grass51" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81726, -0.994972, -13.0679)
-
-[node name="grass52" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.06264, -0.888889, -13.1074)
-
-[node name="grass53" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33401, -0.773163, -13.162)
-
-[node name="grass54" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42912, -0.715299, -13.0615)
-
-[node name="grass55" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902772, -0.799643, -13.7196)
-
-[node name="grass56" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902772, -0.799643, -13.6503)
-
-[node name="grass57" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.902772, -0.799643, -13.4965)
-
-[node name="grass58" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31775, -0.799643, -13.4965)
-
-[node name="grass59" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71201, -0.799643, -13.4965)
-
-[node name="grass60" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12495, -0.799643, -13.4965)
-
-[node name="grass61" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37033, -0.693561, -13.5359)
-
-[node name="grass62" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6417, -0.577834, -13.5906)
-
-[node name="grass63" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.73681, -0.519971, -13.49)
-
-[node name="grass64" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.922081, -0.884168, -13.5955)
-
-[node name="grass65" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.922081, -0.884168, -13.5262)
-
-[node name="grass66" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.922081, -0.884168, -13.3723)
-
-[node name="grass67" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33706, -0.884168, -13.3723)
-
-[node name="grass68" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73132, -0.884168, -13.3723)
-
-[node name="grass69" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14426, -0.884168, -13.3723)
-
-[node name="grass70" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38964, -0.778086, -13.4118)
-
-[node name="grass71" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66101, -0.662359, -13.4665)
-
-[node name="grass72" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75611, -0.604496, -13.3659)
-
-[node name="grass73" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936745, -0.876776, -13.255)
-
-[node name="grass74" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936745, -0.876776, -13.1857)
-
-[node name="grass75" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936745, -0.876776, -13.0319)
-
-[node name="grass76" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35172, -0.876776, -13.0319)
-
-[node name="grass77" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.74599, -0.876776, -13.0319)
-
-[node name="grass78" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15893, -0.876776, -13.0319)
-
-[node name="grass79" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4043, -0.770693, -13.0713)
-
-[node name="rocks" parent="SubViewportContainer/SubViewport" instance=ExtResource("5_xqixs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70367, -1.30607, -13.2174)
-
-[node name="grass80" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67567, -0.654966, -13.126)
-
-[node name="grass81" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_b8wtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77078, -0.597103, -13.0255)
-
-[node name="tree-pine-small" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_stuvu")]
-transform = Transform3D(3.93446, 0, 0, 0, 3.93446, 0, 0, 0, 3.93446, 2.95862, -0.982351, -14.4938)
-
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 188.0
-offset_top = 107.0
-offset_right = 285.0
-offset_bottom = 243.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -165.0
+offset_right = -73.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(1.45548, 1.02607)
 
 [node name="PlayButton" type="Button" parent="ButtonContainer"]
@@ -350,3 +57,22 @@ text = "Scoreboard"
 [node name="ExitButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_top = 10.0
+offset_right = 184.0
+offset_bottom = 33.0
+text = "Project : Cherryblossom"
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+offset_right = 255.0
+offset_bottom = 147.0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_2nje7")

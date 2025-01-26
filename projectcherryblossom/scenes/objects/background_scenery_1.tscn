@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbjk30yvkx4ma" path="res://fbxs/rocks/rock4.fbx" id="8_p5hya"]
 
 [node name="BackgroundScenery1" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135736, 0.0348892, -4.10753)
+transform = Transform3D(5.21, 0, 0, 0, 5.21, 0, 0, 0, 5.21, 0.135736, 0.0348892, -4.10753)
 
 [node name="bush1" parent="." instance=ExtResource("1_4vwg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.356, 0, -12.2157)
@@ -167,6 +167,27 @@ transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -8.82962, 0
 
 [node name="tree-pine2" parent="." instance=ExtResource("4_p8dl2")]
 transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, 1.71101, 0, -14.751)
+
+[node name="tree-pine9" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -3.85929, 0, -27.5092)
+
+[node name="tree-pine10" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, 11.9483, 0, -25.5281)
+
+[node name="tree-pine11" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, 23.0601, 0, -23.1312)
+
+[node name="tree-pine12" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, 1.33493, 0, -30.9193)
+
+[node name="tree-pine13" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -9.09043, 0, -25.5722)
+
+[node name="tree-pine14" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -15.1581, 0, -31.6286)
+
+[node name="tree-pine15" parent="." instance=ExtResource("4_p8dl2")]
+transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -15.1581, 0, -24.9)
 
 [node name="tree-pine3" parent="." instance=ExtResource("4_p8dl2")]
 transform = Transform3D(6.09239, 0, 0, 0, 6.09239, 0, 0, 0, 6.09239, -0.128317, 0, -20.6034)

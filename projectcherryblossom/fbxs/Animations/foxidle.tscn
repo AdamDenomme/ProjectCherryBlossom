@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://by37hpdex8vo6"]
+
+[ext_resource type="PackedScene" uid="uid://cati8immvvvys" path="res://fbxs/Animations/foxidle.glb" id="1_hhvne"]
+[ext_resource type="Texture2D" uid="uid://yrpm4fbrjmbh" path="res://art/Free Wild Animal 3D Models/fbx/Animals/wild_animals_map.png" id="2_rcg30"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxdrl"]
+albedo_texture = ExtResource("2_rcg30")
+
+[node name="foxidle" instance=ExtResource("1_hhvne")]
+
+[node name="Skeleton3D" parent="Armature_1" index="0"]
+bones/3/rotation = Quaternion(-2.07459e-06, -4.21659e-08, -0.691567, 0.722312)
+bones/13/rotation = Quaternion(2.8937e-07, -5.04945e-08, 0.0753638, 0.997156)
+bones/14/rotation = Quaternion(7.06702e-07, -3.30953e-08, -0.00584568, 0.999983)
+
+[node name="fox" parent="Armature_1/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_gxdrl")
+
+[node name="AnimationPlayer" parent="." index="1"]
+speed_scale = 1.2

@@ -4,13 +4,14 @@ var destruction_timer : Timer
 var respawn_timer : Timer
 @onready var collision = get_node("CollisionShape3D")
 @onready var area = get_node("Area3D")
+var pause_screen : Panel
 
 
 func _ready():
 	#Parse the timer
 	destruction_timer = get_node("DestroyTimer")
 	respawn_timer = get_node("RespawnTimer")
-
+	
 func _on_area_3d_body_entered(_body: Node3D) -> void:
 	if _body.is_in_group("player"):
 		destruction_timer.start()

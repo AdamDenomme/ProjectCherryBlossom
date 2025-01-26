@@ -4,5 +4,5 @@ extends Area3D
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):  # Check if the body is the player
 		#DEBUG
-		#print("Player hit by spike!")
+		print("Player hit by spike!")
 		body.hit.emit()

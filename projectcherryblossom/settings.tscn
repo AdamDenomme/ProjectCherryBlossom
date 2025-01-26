@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://gbsnowbwx4u"]
+[gd_scene load_steps=2 format=3 uid="uid://gbsnowbwx4u"]
 
-[ext_resource type="Script" path="res://settings.gd" id="1_xodn4"]
-[ext_resource type="AudioStream" uid="uid://c1uuk1kohvp3m" path="res://art/House In a Forest Loop.ogg" id="2_ty6a0"]
+[ext_resource type="Texture2D" uid="uid://bk7ruocqpx521" path="res://art/origbig.png" id="1_5fkpi"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -10,49 +9,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xodn4")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.156863, 0.356863, 0.576471, 0.231373)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_right = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5fkpi")
+expand_mode = 3
+
+[node name="OptionLabels" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.5
+offset_top = -52.0
+offset_right = 158.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="OptionLabels"]
+layout_mode = 2
+text = "Main Volume
+"
+
+[node name="ResolutionLabel" type="Label" parent="OptionLabels"]
+layout_mode = 2
+text = "Change Resolution"
+
+[node name="ParticleLabel" type="Label" parent="OptionLabels"]
+layout_mode = 2
+text = "Enable Fullscreen"
+
+[node name="TimerLabel" type="Label" parent="OptionLabels"]
+layout_mode = 2
+text = "Toggle Timer UI"
+
+[node name="OptionToggles" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -53.5
+offset_right = 154.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeSlider" type="HSlider" parent="OptionToggles"]
+layout_mode = 2
+value = 100.0
+
+[node name="ResolutionDropdown" type="OptionButton" parent="OptionToggles"]
+layout_mode = 2
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "720x540"
+popup/item_1/text = "1440x1080"
+popup/item_1/id = 1
+popup/item_2/text = "2160,1620"
+popup/item_2/id = 2
+
+[node name="FullscreenToggle" type="CheckBox" parent="OptionToggles"]
+layout_mode = 2
+button_pressed = true
+
+[node name="TimerToggle" type="CheckBox" parent="OptionToggles"]
+layout_mode = 2
+button_pressed = true
 
 [node name="ReturnButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -8.0
-offset_right = 8.0
+offset_top = -31.0
+offset_right = 128.0
 grow_vertical = 0
 text = "Return"
-
-[node name="Volume" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 393.0
-offset_top = 129.0
-offset_right = 433.0
-offset_bottom = 152.0
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 259.0
-offset_top = 128.0
-offset_right = 318.0
-offset_bottom = 151.0
-text = "Volume"
-
-[node name="OptionButton" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 284.0
-offset_top = 199.0
-offset_right = 412.0
-offset_bottom = 230.0
-item_count = 3
-popup/item_0/text = "Resolution 1"
-popup/item_1/text = "Resolution 2"
-popup/item_1/id = 1
-popup/item_2/text = "Resolution 3"
-popup/item_2/id = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_ty6a0")
-
-[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="value_changed" from="Volume" to="." method="_on_volume_value_changed"]
-[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

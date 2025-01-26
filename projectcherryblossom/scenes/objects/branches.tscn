@@ -7,22 +7,22 @@
 size = Vector3(1.94288, 0.723053, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_klnch"]
-size = Vector3(1.77006, 0.614972, 0.806167)
+size = Vector3(1.77006, 0.444427, 0.806167)
 
 [node name="Branches" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11894, 0)
 script = ExtResource("1_4ueco")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0242831, -0.579182, 0.130113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0242831, -0.810587, 0.130113)
 visible = false
 shape = SubResource("BoxShape3D_maqrk")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0214663, 0.0672133, 0.0385966)
+transform = Transform3D(1, 0, 0, 0, 2.43653, 0, 0, 0, 1, -0.0214663, 0.249279, 0.0385966)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0319309, -0.226058, 0.117138)
+transform = Transform3D(0.999993, 0, 0, 0, 1, 0, 0, 0, 0.999993, -0.0319309, -0.140783, 0.117138)
 shape = SubResource("BoxShape3D_klnch")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

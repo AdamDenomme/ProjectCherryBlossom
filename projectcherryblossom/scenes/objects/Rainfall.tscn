@@ -2,7 +2,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0eyw0"]
 transparency = 1
-albedo_color = Color(0.752941, 0.886275, 1, 0.509804)
+albedo_color = Color(0.976471, 0.988235, 1, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhin6"]
 emission_shape_scale = Vector3(5, 0, 5)
@@ -12,19 +12,17 @@ direction = Vector3(0, -1, 0)
 gravity = Vector3(0, -8, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_c6gn6"]
-radius = 0.25
-height = 0.8
-radial_segments = 4
-rings = 1
+radial_segments = 17
+rings = 6
 
 [node name="Rainfall" type="Node3D"]
 transform = Transform3D(15.9167, 0, 0, 0, 15.9167, 0, 0, 0, 15.9167, 0, 0, 0)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_0eyw0")
-amount = 1000
+amount = 50
 lifetime = 5.0
-speed_scale = 8.76
-randomness = 0.5
+speed_scale = 1.5
+randomness = 0.52
 process_material = SubResource("ParticleProcessMaterial_hhin6")
 draw_pass_1 = SubResource("SphereMesh_c6gn6")

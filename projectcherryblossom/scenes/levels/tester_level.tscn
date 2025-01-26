@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl13bg63evpq2"]
+[gd_scene load_steps=9 format=3 uid="uid://dmotxc7bssp7f"]
 
 [ext_resource type="PackedScene" uid="uid://tatna3f3iiwi" path="res://scenes/objects/camera.tscn" id="1_c28s1"]
+[ext_resource type="Script" path="res://scenes/objects/PixelBackground.gd" id="1_hkrkq"]
 [ext_resource type="PackedScene" uid="uid://b3xr0w1vjwirs" path="res://scenes/objects/player.tscn" id="2_b3yjj"]
 [ext_resource type="PackedScene" uid="uid://b30danykaaggp" path="res://scenes/objects/spawn_location.tscn" id="3_rxjii"]
 [ext_resource type="PackedScene" uid="uid://cpc65da1h7mt" path="res://scenes/objects/user_interface.tscn" id="7_u41rb"]
@@ -12,32 +13,48 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_m8gpl"]
 size = Vector3(60, 2, 60)
 
-[node name="Origin" type="Node3D"]
+[node name="BaseBackground" type="Node2D"]
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_hkrkq")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+canvas_cull_mask = 4294966273
+size = Vector2i(720, 540)
+
+[node name="Origin" type="Node3D" parent="SubViewport"]
+
+[node name="Ground" type="StaticBody3D" parent="SubViewport/Origin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Origin/Ground"]
 shape = SubResource("BoxShape3D_o0js6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Origin/Ground"]
 layers = 4
 mesh = SubResource("BoxMesh_m8gpl")
 
-[node name="CameraPivot" parent="." instance=ExtResource("1_c28s1")]
+[node name="CameraPivot" parent="SubViewport/Origin" instance=ExtResource("1_c28s1")]
 
-[node name="Player" parent="." instance=ExtResource("2_b3yjj")]
-collision_mask = 14
+[node name="Player" parent="SubViewport/Origin" instance=ExtResource("2_b3yjj")]
 
-[node name="SpawnLocation" parent="." instance=ExtResource("3_rxjii")]
+[node name="SpawnLocation" parent="SubViewport/Origin" instance=ExtResource("3_rxjii")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Origin"]
 transform = Transform3D(1, 0, 0, 0, 0.658493, 0.752587, 0, -0.752587, 0.658493, -1.29336, 14.2836, 6.07732)
 shadow_enabled = true
 
-[node name="UserInterface" parent="." instance=ExtResource("7_u41rb")]
+[node name="UserInterface" parent="SubViewport/Origin" instance=ExtResource("7_u41rb")]
 
-[node name="VictoryPlane" parent="." instance=ExtResource("8_8028b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+[node name="VictoryPlane" parent="SubViewport/Origin" instance=ExtResource("8_8028b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.51225, 0, 0)

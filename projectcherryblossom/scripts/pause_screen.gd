@@ -1,5 +1,8 @@
 extends Panel
 
+signal reload
+signal quit
+
 # Exported variables for buttons in the pause menu
 @export var resume_button : Button
 @export var retry_button : Button
@@ -90,14 +93,15 @@ func _on_retry_pressed():
 	print("Retry button pressed!")
 	self.visible = false  # Hide the pause screen
 	player.set_control_state(true)  # Re-enable player controls
-	level.get_parent().load_scene("res://scenes/levels/FirstLevel.tscn")
+	reload.emit()
 
 # The action for the Quit button
 func _on_quit_pressed():
 	# Quit to main menu
 	print("Quit button pressed!")
 	self.visible = false  # Hide the pause screen
-	level.get_parent().load_scene("res://scenes/objects/main_menu.tscn")  # Pivot to the main menu
+	#level.load_scene("res://scenes/objects/main_menu.tscn")  # Pivot to the main menu
+	quit.emit()
 
 # Toggle the visibility of the PauseScreen
 func toggle_pause():
